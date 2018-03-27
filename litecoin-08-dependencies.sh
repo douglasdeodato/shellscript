@@ -1,4 +1,8 @@
-#/bin/bash
+#!/bin/bash
+
+# how to use:
+# wget https://raw.githubusercontent.com/douglasdeodato/shellscript/master/litecoin-08-dependencies.sh
+# chmod 755 litecoin-08-dependencies.sh
 
 cd ~
 echo "******************************************************************************"
@@ -37,9 +41,10 @@ if [[ $DOSETUP =~ "y" ]] ; then
 
 fi
 
-git clone -b 0.8 https://github.com/litecoin-project/litecoin.git
+ git clone https://github.com/litecoin-project/litecoin ~/Desktop/litecoin
+ cd ~/Desktop/litecoin
+ git tag -l
+ git checkout 0.8
 
-cd /litecoin
-
-echo ""
-echo "done!"
+ echo ""
+ echo "done!"
