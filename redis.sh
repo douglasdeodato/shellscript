@@ -3,31 +3,22 @@
 # and here: https://raw.github.com/gist/257849/9f1e627e0b7dbe68882fa2b7bdb1b2b263522004/redis-server
 ###############################################
 # To use:
-# <<!!!!!!!!!!!!!!!!!!! FIX ME !!!!!!!!!!!!!!!!!!!!!!!!> wget https://raw.github.com/gist/2776679/04ca3bbb9f085b192f6aca945120fe12d59f15f9/install-redis.sh
+# wget https://gist.githubusercontent.com/four43/e00d01ca084c5972f229/raw/install-redis.sh
 # chmod 777 install-redis.sh
 # ./install-redis.sh
 ###############################################
-
-# how to use:
-# wget https://raw.githubusercontent.com/douglasdeodato/shellscript/master/redis.sh
-# chmod 755 redis.sh
-
-
 echo "*****************************************"
 echo " 1. Prerequisites: Install updates, set time zones, install GCC and make"
 echo "*****************************************"
-#sudo yum -y update
-#sudo ln -sf /usr/share/zoneinfo/America/Los_Angeles \/etc/localtime
-#sudo yum -y install gcc gcc-c++ make
+sudo yum -y install gcc gcc-c++ make
 echo "*****************************************"
 echo " 2. Download, Untar and Make Redis 2.6"
 echo "*****************************************"
 cd /usr/local/src
-sudo wget http://download.redis.io/releases/redis-2.6.16.tar.gz
-sudo tar xzf redis-2.6.16.tar.gz
-sudo rm redis-2.6.16.tar.gz -f
-cd redis-2.6.16
-sudo make distclean
+sudo wget http://download.redis.io/redis-stable.tar.gz
+sudo tar xzf redis-stable.tar.gz
+sudo rm redis-stable.tar.gz -f
+cd redis-stable
 sudo make
 echo "*****************************************"
 echo " 3. Create Directories and Copy Redis Files"
@@ -48,7 +39,7 @@ sudo sed -e "s/^daemonize no$/daemonize yes/" -e "s/^# bind 127.0.0.1$/bind 127.
 echo "*****************************************"
 echo " 5. Download init Script"
 echo "*****************************************"
-sudo wget https://raw.github.com/saxenap/install-redis-amazon-linux-centos/master/redis-server
+sudo wget https://gist.githubusercontent.com/four43/c8bdd494292dcb1e2d38/raw/redis-server
 echo "*****************************************"
 echo " 6. Move and Configure Redis-Server"
 echo "*****************************************"
@@ -66,10 +57,9 @@ sudo service redis-server start
 echo "*****************************************"
 echo " Complete!"
 echo " You can test your redis installation using the redis console:"
-echo "   $ /usr/local/redis-2.6.16/src/redis-cli"
+echo "   $ src/redis-cli"
 echo "   redis> set foo bar"
 echo "   OK"
 echo "   redis> get foo"
 echo "   bar"
 echo "*****************************************"
-read -p "Press [Enter] to continue..."
