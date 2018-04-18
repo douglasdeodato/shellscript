@@ -39,8 +39,9 @@ echo "*****************************************"
 # we will build in the /tmp directory. Let's move there now:
 
 cd /tmp
-
+echo "**********************************************************************************************************"
 echo "Now, download the latest stable version of Redis. This is always available at a stable download URL:"
+echo "**********************************************************************************************************"
 
 curl -O http://download.redis.io/redis-stable.tar.gz
 
@@ -49,7 +50,11 @@ curl -O http://download.redis.io/redis-stable.tar.gz
 tar xzvf redis-stable.tar.gz
 # Move into the Redis source directory structure that was just extracted:
 
-cd redis-stable
+echo "*****************************************"
+echo " Move into the Redis source directory"
+echo "*****************************************"
+
+cd /tmp/redis-stable
 
 
 
